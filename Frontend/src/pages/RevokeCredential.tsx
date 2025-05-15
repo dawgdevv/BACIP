@@ -385,36 +385,48 @@ const RevokeCredential = () => {
                     <button
                       onClick={resetForm}
                       className="text-muted-foreground hover:text-foreground"
+                      aria-label="Reset revocation form"
                     >
                       <X className="w-5 h-5" />
                     </button>
                   </div>
 
-                  <div className="pl-12 mt-4">
+                  <div className="pl-0 mt-4">
                     <p className="mb-4">
                       Certificate{" "}
                       <span className="font-medium">{searchResult?.id}</span>{" "}
                       has been revoked successfully.
                     </p>
 
-                    <div className="bg-secondary/50 p-4 rounded-lg mb-4">
-                      <div className="flex items-start gap-3">
-                        <Info className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <p className="font-medium mb-1">
-                            Revocation Transaction
-                          </p>
-                          <p className="text-sm text-muted-foreground mb-1">
-                            Transaction ID:
-                          </p>
-                          <p className="text-sm font-mono bg-background/80 p-2 rounded">
-                            {transactionHash || "Transaction processing..."}
-                          </p>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Timestamp: {new Date().toLocaleString()}
-                          </p>
-                        </div>
+                    <div className="bg-secondary/50 p-4 rounded-lg mb-4 flex flex-col items-start">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Info className="w-5 h-5 text-primary" />
+                        <span className="font-medium">
+                          Revocation Transaction
+                        </span>
                       </div>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        Transaction Hash:
+                      </p>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-sm font-mono bg-background/80 p-2 rounded break-all">
+                          {transactionHash || "Transaction processing..."}
+                        </span>
+                        {transactionHash && (
+                          <button
+                            className="btn-secondary text-xs"
+                            onClick={() => {
+                              navigator.clipboard.writeText(transactionHash);
+                              toast.success("Transaction hash copied!");
+                            }}
+                          >
+                            Copy Hash
+                          </button>
+                        )}
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Timestamp: {new Date().toLocaleString()}
+                      </p>
                     </div>
 
                     <button onClick={resetForm} className="btn-primary mt-2">

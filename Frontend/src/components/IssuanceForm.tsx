@@ -242,49 +242,70 @@ const IssuanceForm = () => {
     setTooltipVisible(null);
   };
 
-  if (isComplete) {
+  if (isComplete && transactionDetails) {
     return (
-      <div className="glass rounded-2xl p-8 text-center max-w-md mx-auto animate-scale-in">
-        <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-          <Check className="w-8 h-8 text-green-600" />
-        </div>
-        <h2 className="text-2xl font-bold mb-4">
-          Certificate Issued Successfully
-        </h2>
-        <p className="text-muted-foreground mb-8">
-          The certificate has been issued and will be added to the blockchain.
-          The recipient will receive an email notification.
-        </p>
-        <div className="glass bg-secondary/50 rounded-lg p-4 mb-6">
-          <p className="text-sm font-medium">Transaction ID</p>
-          <p className="text-muted-foreground font-mono text-xs">
-            {transactionDetails?.transactionHash}
+      <section className="container mx-auto px-6 py-12 max-w-3xl">
+        <div className="glass rounded-2xl p-8 text-center animate-scale-in">
+          <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+            <Check className="w-8 h-8 text-green-600" />
+          </div>
+          <h2 className="text-2xl font-bold mb-4">
+            Certificate Issued Successfully
+          </h2>
+          <p className="text-muted-foreground mb-8">
+            The certificate has been issued and added to the blockchain.
+            <br />
+            The recipient will receive an email notification.
           </p>
+          <div className="glass bg-secondary/50 rounded-lg p-4 mb-6 flex flex-col items-center">
+            <p className="text-sm font-medium mb-1">Transaction Hash</p>
+            <p className="text-muted-foreground font-mono text-xs break-all mb-2">
+              {transactionDetails.transactionHash}
+            </p>
+            <button
+              className="btn-secondary text-xs"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  transactionDetails.transactionHash
+                );
+                toast.success("Transaction hash copied!");
+              }}
+            >
+              Copy Hash
+            </button>
+          </div>
+          <div className="glass bg-secondary/50 rounded-lg p-4 mb-6 flex flex-col items-center">
+            <p className="text-sm font-medium mb-1">Degree ID</p>
+            <p className="text-muted-foreground font-mono text-xs break-all">
+              {transactionDetails.degreeId}
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              setIsComplete(false);
+              setCurrentStep(0);
+              setFormData({
+                institution: "",
+                department: "",
+                issuerName: "",
+                issuerEmail: "",
+                credentialType: "",
+                credentialName: "",
+                studentName: "",
+                studentId: "",
+                studentEmail: "",
+                issueDate: "",
+                expiryDate: "",
+                credentials: null,
+              });
+              setTransactionDetails(null);
+            }}
+            className="btn-primary mx-auto"
+          >
+            Issue Another Certificate
+          </button>
         </div>
-        <button
-          onClick={() => {
-            setIsComplete(false);
-            setCurrentStep(0);
-            setFormData({
-              institution: "",
-              department: "",
-              issuerName: "",
-              issuerEmail: "",
-              credentialType: "",
-              credentialName: "",
-              studentName: "",
-              studentId: "",
-              studentEmail: "",
-              issueDate: "",
-              expiryDate: "",
-              credentials: null,
-            });
-          }}
-          className="btn-primary mx-auto"
-        >
-          Issue Another Certificate
-        </button>
-      </div>
+      </section>
     );
   }
 
