@@ -1,0 +1,55 @@
+# Operating System generated files
+.DS_Store
+Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# IDE / Editor specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependency directories
+**/node_modules/
+
+# Build output / Distribution folders
+**/build/
+**/dist/
+**/out/
+
+# Frontend framework specific (e.g., Next.js, Nuxt.js, SvelteKit)
+**/.next/
+**/.nuxt/
+**/.svelte-kit/
+
+# Smart Contract build artifacts (e.g., Hardhat, Foundry, Truffle)
+**/artifacts/
+**/cache/
+**/typechain/
+**/typechain-types/
+**/deployments/
+
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables files
+# It's crucial to not commit .env files containing sensitive credentials.
+# Instead, commit a template/example file (e.g., .env.example).
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+
+# Test coverage reports
+**/coverage/
+**/.nyc_output/
+
+# Temporary files
+*.tmp

@@ -1,0 +1,198 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 5%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 213 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    @apply bg-background text-foreground;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/30 transition-all;
+  }
+
+  /* Base typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply leading-7;
+  }
+
+  /* Glass morphism utility classes */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 shadow-md;
+  }
+
+  /* Soft shadows */
+  .shadow-soft {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 8px rgba(0, 0, 0, 0.02);
+  }
+
+  /* Page transitions */
+  .page-transition-enter {
+    @apply opacity-0;
+  }
+
+  .page-transition-enter-active {
+    @apply opacity-100 transition-all duration-300 ease-in-out;
+  }
+
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+
+  .page-transition-exit-active {
+    @apply opacity-0 transition-all duration-300 ease-in-out;
+  }
+}
+
+/* Additional utility classes */
+@layer components {
+  .container-tight {
+    @apply container max-w-5xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-3 
+    transition-all duration-300 flex items-center gap-2 font-medium shadow-lg shadow-primary/20;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-lg px-6 py-3 
+    transition-all duration-300 flex items-center gap-2 font-medium;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground 
+    rounded-lg px-6 py-3 transition-all duration-300 flex items-center gap-2 font-medium;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto text-center mb-12;
+  }
+}
