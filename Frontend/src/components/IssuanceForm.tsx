@@ -263,7 +263,7 @@ const IssuanceForm = () => {
               {transactionDetails.transactionHash}
             </p>
             <button
-              className="btn-secondary text-xs"
+              className="btn-secondary text-xs bg-slate-600"
               onClick={() => {
                 navigator.clipboard.writeText(
                   transactionDetails.transactionHash
@@ -273,12 +273,30 @@ const IssuanceForm = () => {
             >
               Copy Hash
             </button>
+
+            <a
+              href={`https://amoy.polygonscan.com/tx/${transactionDetails.transactionHash}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary bg-slate-600 mt-2 text-xs"
+            >
+              View on Block Explorer
+            </a>
           </div>
           <div className="glass bg-secondary/50 rounded-lg p-4 mb-6 flex flex-col items-center">
             <p className="text-sm font-medium mb-1">Degree ID</p>
             <p className="text-muted-foreground font-mono text-xs break-all">
               {transactionDetails.degreeId}
             </p>
+            <button
+              className="btn-secondary text-xs bg-slate-600"
+              onClick={() => {
+                navigator.clipboard.writeText(transactionDetails.degreeId);
+                toast.success("Transaction hash copied!");
+              }}
+            >
+              Copy Hash
+            </button>
           </div>
           <button
             onClick={() => {

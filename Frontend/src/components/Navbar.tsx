@@ -35,6 +35,11 @@ const Navbar = () => {
     { name: "Verify", path: "/verify", icon: <Shield className="w-4 h-4" /> },
     { name: "Issue", path: "/issue", icon: <BookOpen className="w-4 h-4" /> },
     { name: "revoke", path: "/revoke", icon: <X className="w-4 h-4" /> },
+    {
+      name: "Dashboard",
+      path: "/dashboard",
+      icon: <GraduationCap className="w-4 h-4" />,
+    },
   ];
 
   return (

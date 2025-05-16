@@ -8,6 +8,7 @@ import Verify from "./pages/Verify";
 import Issue from "./pages/Issue";
 import NotFound from "./pages/NotFound";
 import RevokeCredential from "./pages/RevokeCredential";
+import Mydashboard from "./pages/Mydashboard";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,9 @@ const App = () => (
           <Route path="/verify" element={<Verify />} />
           <Route path="/issue" element={<Issue />} />
           <Route path="/revoke" element={<RevokeCredential />} />
+          <Route path="/dashboard" element={<Mydashboard />} />
+          {/* ADD ALL CUSTOM ROUTES BELOW THE CATCH-ALL "*" ROUTE */}
+          {/* <Route path="/some-other-route" element={<SomeComponent />} /> */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

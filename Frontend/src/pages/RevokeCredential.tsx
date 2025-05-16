@@ -226,7 +226,9 @@ const RevokeCredential = () => {
                           <p className="text-sm text-muted-foreground">
                             Certificate ID
                           </p>
-                          <p className="font-medium">{searchResult.id}</p>
+                          <p className="font-medium break-all">
+                            {searchResult.id}
+                          </p>
                         </div>
                         <div>
                           <p className="text-sm text-muted-foreground">
@@ -329,10 +331,11 @@ const RevokeCredential = () => {
                     </div>
 
                     <div className="bg-secondary/50 p-4 rounded-lg mb-6">
-                      <p className="font-medium mb-1">
+                      <p className="font-medium break-all mb-1">
                         Certificate: {searchResult?.id}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+
+                      <p className="text-sm break-all text-muted-foreground">
                         Issued to: {searchResult?.recipientAddress}
                       </p>
                     </div>

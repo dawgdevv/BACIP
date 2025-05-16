@@ -14,8 +14,8 @@ const Issue = () => {
       <Navbar />
       <main className="flex-1 pt-24">
         <div className="container mx-auto px-6 py-12">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h1 className="text-4xl font-bold mb-4">Issue Certificate</h1>
+          <div className="text-center max-w-3xl mx-auto ">
+            <h1 className="text-4xl font-bold ">Issue Certificate</h1>
             <p className="text-xl text-muted-foreground">
               Issue secure, blockchain-verified certificates for academic
               achievements and skills.

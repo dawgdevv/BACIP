@@ -12,18 +12,10 @@ const Verify = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 pt-24">
-        <div className="container mx-auto px-6 py-12">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h1 className="text-4xl font-bold mb-4">Verify Certificate</h1>
-            <p className="text-xl text-muted-foreground">
-              Instantly verify the authenticity of any academic certificate
-              issued through our blockchain protocol.
-            </p>
-          </div>
-        </div>
+      <main className="flex-grow flex items-center justify-center bg-gray-50">
         <VerificationForm />
       </main>
+
       <Footer />
     </div>
   );
